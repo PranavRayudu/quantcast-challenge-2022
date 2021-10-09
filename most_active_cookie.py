@@ -1,22 +1,19 @@
 #!/usr/bin/env python3
 import os
-import csv
-from datetime import datetime
+from datetime import datetime, timezone
 from argparse import ArgumentParser
-from typing import TextIO, Tuple, List, Dict, Iterable
+from typing import TextIO, Tuple, List, Dict
 
-Logs = Iterable[Tuple[datetime, str]]
+Logs = List[Tuple[datetime, str]]
 
 
-# https://stackoverflow.com/questions/11540854/file-as-command-line-argument-for-argparse-error-message-if-argument-is-not-va
 def is_valid_file(parser: ArgumentParser, arg: str) -> TextIO:
-    if not os.path.exists(arg):
-        parser.error('File {} does not exist!'.format(arg))
+    if os.path.exists(arg):
+        return open(arg, 'r')
     else:
-        return open(arg, 'r')  # return an open file handle
+        parser.error('File {} does not exist!'.format(arg))
 
 
-# https://stackoverflow.com/questions/466345/converting-string-into-datetime
 def is_valid_date(parser: ArgumentParser, arg: str) -> datetime:
     try:
         return datetime.strptime(arg, '%Y-%m-%d')
@@ -27,8 +24,8 @@ def is_valid_date(parser: ArgumentParser, arg: str) -> datetime:
 def parse_arguments():
     parser = ArgumentParser(description='returns the most active cookie for specified day')
 
-    parser.add_argument("filename",
-                        help="input file with cookie logs", metavar="FILE",
+    parser.add_argument('filename',
+                        help='input file with cookie logs', metavar='FILE',
                         type=lambda x: is_valid_file(parser, x))
     parser.add_argument('-d', '--date',
                         help='date in UTC format',
@@ -39,25 +36,26 @@ def parse_arguments():
     return args
 
 
-# https://docs.python.org/3/library/csv.html
-def process_logfile(file: TextIO) -> Logs:
-    log_reader = csv.reader(file, delimiter=',')
+def process_logfile(log_file: TextIO) -> Logs:
     logs: Logs = []
 
-    next(log_reader)
-    for cookie, date in log_reader:
+    # with file as log_file:
+    # log_reader = csv.reader(file, delimiter=',')
+    next(log_file)
+    for line_num, line in enumerate(log_file):
+        cookie, date = line.strip().split(',')
         try:
             date = datetime.fromisoformat(date)
         except ValueError:
-            print('Invalid date format {}'.format(date))
+            print('Invalid date format {} on line {}'.format(date, line_num + 1))
         else:
             logs.append((date, cookie))
-
+    log_file.close()
     return logs
 
 
 def get_day_filter(date: datetime):
-    return lambda log: log[0].date() == date.date()
+    return lambda log: log[0].date() == date.astimezone(timezone.utc).date()
 
 
 def get_cookie_freq(logs: Logs) -> Dict[str, int]:
@@ -81,11 +79,11 @@ def main():
     args = parse_arguments()
 
     logs = process_logfile(args.filename)
-    logs = filter(get_day_filter(args.date), logs)
+
+    logs = list(filter(get_day_filter(args.date), logs))
 
     cookie_freq = get_cookie_freq(logs)
     most_freq_cookies = get_most_common_cookie(cookie_freq)
-
     print(*most_freq_cookies, sep=os.linesep)  # use linesep to be accurate for all OS
 
 
