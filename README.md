@@ -8,36 +8,31 @@ Mos Active Cookie processes the log file and return the most active cookie for s
 
 ## Getting Started
 
-### Dependencies
+1. This project requires [Python 3.7](https://www.python.org/download/releases/3.0/) or higher
 
-* [Python 3.8](https://www.python.org/download/releases/3.0/)
-* [Pip](https://pip.pypa.io/)
-
-### Installing
-
-1. Clone the repo
+2. Clone the repo
 ```bash
 git clone https://github.com/PranavRayudu/quantcast-challenge-2022.git
 ```
 
-2. Install pip packages
-```bash
-pip install -r requirements.txt
-```
-
 ### Executing program
 
-* To execute on 
-```
-code blocks for commands
+* To execute on command line
+```bash
+python most_active_cookie.py <fillename> -d <date>
 ```
 
 * Example program
 ```bash
-
+python most_active_cookie.py most_active_cookie_log.csv -d 2018-12-09
 ```
 
 * To run tests
+```bash
+python -m unittest
 ```
-code blocks for commands
+
+* To generate docs
+```bash
+
 ```
