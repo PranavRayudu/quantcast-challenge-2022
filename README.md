@@ -1,3 +1,5 @@
+[![Run Python Tests](https://github.com/PranavRayudu/quantcast-challenge-2022/actions/workflows/ci.yml/badge.svg)](https://github.com/PranavRayudu/quantcast-challenge-2022/actions/workflows/ci.yml)
+
 # Most Active Cookie
 
 Most Active Cookie is a command line application for the Quantcast 2022 Summer Internship coding challenge.
@@ -30,9 +32,4 @@ python most_active_cookie.py most_active_cookie_log.csv -d 2018-12-09
 * To run tests
 ```bash
 python -m unittest
-```
-
-* To generate docs
-```bash
-
 ```

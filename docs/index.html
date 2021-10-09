@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module most_active_cookie</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>most_active_cookie</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="..">index</a><br><a href="file:c%3A%5Cusers%5Ctarak%5Cpycharmprojects%5Cquantcast-challenge-2022%5Cmost_active_cookie.py">c:\users\tarak\pycharmprojects\quantcast-challenge-2022\most_active_cookie.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-get_cookie_freq"><strong>get_cookie_freq</strong></a>(logs: List[Tuple[datetime.datetime, str]]) -&gt; Dict[str, int]</dt><dd><tt>Given&nbsp;list&nbsp;of&nbsp;logs,&nbsp;returns&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;cookies&nbsp;-&nbsp;count&nbsp;pairs<br>
+:param&nbsp;logs:&nbsp;list&nbsp;of&nbsp;logs&nbsp;that&nbsp;consist&nbsp;of&nbsp;a&nbsp;cookie&nbsp;and&nbsp;its&nbsp;timestamp<br>
+:return:&nbsp;cookie&nbsp;frequency&nbsp;dictionary</tt></dd></dl>
+ <dl><dt><a name="-get_day_filter"><strong>get_day_filter</strong></a>(date: datetime.datetime)</dt><dd><tt>Returns&nbsp;function&nbsp;that&nbsp;returns&nbsp;true&nbsp;if&nbsp;parameter&nbsp;is&nbsp;same&nbsp;day&nbsp;as&nbsp;`date`<br>
+:param&nbsp;date:&nbsp;datetime&nbsp;object<br>
+:return:&nbsp;lambda&nbsp;function</tt></dd></dl>
+ <dl><dt><a name="-get_most_common_cookie"><strong>get_most_common_cookie</strong></a>(cookie_freq: Dict[str, int]) -&gt; List[str]</dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;highest&nbsp;frequency&nbsp;cookies<br>
+:param&nbsp;cookie_freq:&nbsp;dictionary&nbsp;of&nbsp;cookie-count&nbsp;pairs<br>
+:return:&nbsp;list&nbsp;of&nbsp;most&nbsp;occurring&nbsp;cookies</tt></dd></dl>
+ <dl><dt><a name="-is_valid_date"><strong>is_valid_date</strong></a>(parser: argparse.ArgumentParser, arg: str) -&gt; datetime.datetime</dt><dd><tt>Converts&nbsp;YYY-MM-DD&nbsp;format&nbsp;to&nbsp;`datetime`.&nbsp;Produces&nbsp;error&nbsp;on&nbsp;bad&nbsp;format<br>
+:param&nbsp;parser:&nbsp;the&nbsp;CLI&nbsp;argument&nbsp;parser<br>
+:param&nbsp;arg:&nbsp;the&nbsp;date&nbsp;string<br>
+:return:&nbsp;datetime&nbsp;object&nbsp;ver</tt></dd></dl>
+ <dl><dt><a name="-is_valid_file"><strong>is_valid_file</strong></a>(parser: argparse.ArgumentParser, arg: str) -&gt; &lt;class 'TextIO'&gt;</dt><dd><tt>Opens&nbsp;a&nbsp;file&nbsp;if&nbsp;it&nbsp;exists&nbsp;or&nbsp;else&nbsp;errors&nbsp;out<br>
+:param&nbsp;parser:&nbsp;The&nbsp;CLI&nbsp;argument&nbsp;parser<br>
+:param&nbsp;arg:&nbsp;The&nbsp;path&nbsp;to&nbsp;the&nbsp;log&nbsp;file<br>
+:return:&nbsp;Opens&nbsp;and&nbsp;returns&nbsp;the&nbsp;log&nbsp;file&nbsp;object&nbsp;pointed&nbsp;to&nbsp;by&nbsp;`arg`</tt></dd></dl>
+ <dl><dt><a name="-main"><strong>main</strong></a>()</dt></dl>
+ <dl><dt><a name="-parse_arguments"><strong>parse_arguments</strong></a>()</dt><dd><tt>Parses&nbsp;arguments&nbsp;for&nbsp;Most&nbsp;Active&nbsp;Cookie&nbsp;problem.&nbsp;Example:&nbsp;`most_active_cookie_log.csv&nbsp;-d&nbsp;2018-12-09`</tt></dd></dl>
+ <dl><dt><a name="-process_logfile"><strong>process_logfile</strong></a>(log_file: &lt;class 'TextIO'&gt;) -&gt; List[Tuple[datetime.datetime, str]]</dt><dd><tt>Converts&nbsp;file&nbsp;into&nbsp;a&nbsp;list&nbsp;of&nbsp;logs<br>
+:param&nbsp;log_file:&nbsp;file&nbsp;object&nbsp;formatted&nbsp;as&nbsp;a&nbsp;csv&nbsp;file<br>
+:return:&nbsp;List&nbsp;of&nbsp;logs&nbsp;with&nbsp;each&nbsp;entry&nbsp;formatted&nbsp;as&nbsp;a&nbsp;tuple&nbsp;with&nbsp;timestamp&nbsp;and&nbsp;cookie&nbsp;string</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Dict</strong> = typing.Dict<br>
+<strong>List</strong> = typing.List<br>
+<strong>Logs</strong> = typing.List[typing.Tuple[datetime.datetime, str]]<br>
+<strong>Tuple</strong> = typing.Tuple</td></tr></table>
+</body></html>
