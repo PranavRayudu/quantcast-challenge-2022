@@ -22,7 +22,7 @@ class TestFormatting(unittest.TestCase):
 
     def test_2(self):
         """integration test 2"""
-        expected, output = run_test_case('tests/test_cases/test2.in -d 2018-12-09',
+        expected, output = run_test_case('tests/test_cases/test2.in -d 2020-1-1',
                                          'tests/test_cases/test2.out')
         self.assertEqual(output, expected)
 
