@@ -29,6 +29,11 @@ python most_active_cookie.py <fillename> -d <date>
 python most_active_cookie.py most_active_cookie_log.csv -d 2018-12-09
 ```
 
+* Command line help options
+```bash
+python most_active_cookie.py -h
+```
+
 * To run tests
 ```bash
 python -m unittest
