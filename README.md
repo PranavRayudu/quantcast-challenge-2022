@@ -33,3 +33,6 @@ python most_active_cookie.py most_active_cookie_log.csv -d 2018-12-09
 ```bash
 python -m unittest
 ```
+
+### Documentation 
+Documentation is hosted on [Github pages](http://blog.pranavr.me/quantcast-challenge-2022/).
